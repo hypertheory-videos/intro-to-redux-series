@@ -20,7 +20,9 @@ export class CountersComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private store: Store<ApplicationState>
-  ) { }
+  ) {
+    this.store.dispatch(actions.loadSavedCounters());
+  }
 
   ngOnInit(): void {
     this.counters$ = this.store.select(selectAllListCounters);

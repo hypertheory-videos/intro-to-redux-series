@@ -19,6 +19,7 @@ const initialState: CountersState = adapter.getInitialState();
 
 const _countersReducer = createReducer(
   initialState,
+  on(actions.loadSavedCountersSucceeded, (s, a) => adapter.setAll(a.payload, s)),
   on(actions.addCounterToList, (s, a) => adapter.addOne(a.payload, s)),
   on(actions.incrementListCounter, (s, a) => adapter.updateOne({
     id: a.payload.id,

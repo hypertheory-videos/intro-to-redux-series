@@ -12,6 +12,11 @@ import { CounterCountByComponent } from './components/counter-count-by/counter-c
 import { CountersComponent } from './components/counters/counters.component';
 import { SingleComponent } from './components/single/single.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgxIndexedDBModule } from 'ngx-indexed-db';
+import { dbConfig } from './db-config';
+import { CountersDataService } from './services/counters-data';
+import { EffectsModule } from '@ngrx/effects';
+import { CountersEffects } from './effects/counters-effects';
 
 @NgModule({
   declarations: [
@@ -26,9 +31,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     ReactiveFormsModule,
     StoreModule.forRoot(reducers),
-    StoreDevtoolsModule.instrument()
+    StoreDevtoolsModule.instrument(),
+    NgxIndexedDBModule.forRoot(dbConfig),
+    EffectsModule.forRoot([CountersEffects])
   ],
-  providers: [],
+  providers: [CountersDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
