@@ -8,11 +8,13 @@ import { AppComponent } from './app.component';
 import { reducers } from './reducers';
 import { counterReducer } from './reducers/counter.reducer';
 import { CounterComponent } from './components/counter/counter.component';
+import { CounterCountByComponent } from './components/counter-count-by/counter-count-by.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CounterComponent
+    CounterComponent,
+    CounterCountByComponent
   ],
   imports: [
     BrowserModule,
