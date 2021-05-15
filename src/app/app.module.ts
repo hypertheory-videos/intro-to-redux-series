@@ -11,6 +11,7 @@ import { CounterComponent } from './components/counter/counter.component';
 import { CounterCountByComponent } from './components/counter-count-by/counter-count-by.component';
 import { CountersComponent } from './components/counters/counters.component';
 import { SingleComponent } from './components/single/single.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { SingleComponent } from './components/single/single.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument()
   ],

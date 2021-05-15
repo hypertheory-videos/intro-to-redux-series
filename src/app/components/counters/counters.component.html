@@ -1,1 +1,30 @@
-<p>counters works!</p>
+<section class="entry">
+  <h3>Add a New Counter</h3>
+  <form [formGroup]="form"
+        (ngSubmit)="submit(focusMe)">
+    <div class="form-group">
+      <label for="Name">Name</label>
+      <input class="form-control"
+             #focusMe
+             formControlName="name"
+             name="Name">
+    </div>
+    <button class="btn btn-primary"
+            type="submit">Add Counter</button>
+  </form>
+</section>
+<section class="list">
+  <div class="card"
+       *ngFor="let counter of counters$ | async">
+    <div class="card-body">
+      <h5 class="card-title">{{counter.name}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Currently at {{ counter.current }}</h6>
+      <div>
+        <button (click)="decrement(counter)"
+                class="btn btn-sm btn-primary">Decrement</button>
+        <button (click)="increment(counter)"
+                class="btn btn-sm btn-primary">Increment</button>
+      </div>
+    </div>
+  </div>
+</section>
