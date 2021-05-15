@@ -1,4 +1,18 @@
 <main class="container">
-  <app-counter></app-counter>
-  <app-counter-count-by></app-counter-count-by>
+  <ul class="nav nav-pills">
+
+    <li class="nav-item">
+      <a class="nav-link"
+         [routerLinkActive]="['active']"
+         [routerLink]="['single']">Count a Single Thing</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link"
+         [routerLinkActive]="['active']"
+         [routerLink]="['list']">Count a Lot of Things</a>
+    </li>
+
+  </ul>
+
+  <router-outlet></router-outlet>
 </main>
